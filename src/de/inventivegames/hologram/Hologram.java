@@ -5,9 +5,6 @@ import de.inventivegames.hologram.view.ViewHandler;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.Collection;
 
 public abstract interface Hologram {
@@ -22,7 +19,7 @@ public abstract interface Hologram {
 	 *
 	 * @param ticks timeout
 	 */
-	void spawn(@Nonnull @Nonnegative long ticks);
+	void spawn(long ticks);
 
 	/**
 	 * Spawns the hologram
@@ -46,7 +43,7 @@ public abstract interface Hologram {
 	/**
 	 * @param text New text content of the hologram
 	 */
-	void setText(@Nullable String text);
+	void setText(String text);
 
 	/**
 	 * Updates the content of the hologram
@@ -69,14 +66,14 @@ public abstract interface Hologram {
 	 * @param loc changes the {@link Location} of the hologram
 	 * @see Hologram#move(Location)
 	 */
-	void setLocation(@Nonnull Location loc);
+	void setLocation(Location loc);
 
 	/**
 	 * Moves the hologram
 	 *
 	 * @param loc new {@link Location} of the hologram
 	 */
-	void move(@Nonnull Location loc);
+	void move(Location loc);
 
 	/**
 	 * @return <code>true</code> if the hologram is touchable
@@ -95,14 +92,14 @@ public abstract interface Hologram {
 	 *
 	 * @param handler {@link TouchHandler} instance
 	 */
-	void addTouchHandler(@Nonnull TouchHandler handler);
+	void addTouchHandler(TouchHandler handler);
 
 	/**
 	 * Removes a touch handler from the hologram
 	 *
 	 * @param handler {@link TouchHandler} instance
 	 */
-	void removeTouchHandler(@Nonnull TouchHandler handler);
+	void removeTouchHandler(TouchHandler handler);
 
 	/**
 	 * @return a {@link Collection} of registered {@link TouchHandler}s
@@ -119,19 +116,18 @@ public abstract interface Hologram {
 	 *
 	 * @param handler {@link ViewHandler} instance
 	 */
-	void addViewHandler(@Nonnull ViewHandler handler);
+	void addViewHandler(ViewHandler handler);
 
 	/**
 	 * Removes a view handler from the hologram
 	 *
 	 * @param handler {@link ViewHandler} instance
 	 */
-	void removeViewHandler(@Nonnull ViewHandler handler);
+	void removeViewHandler(ViewHandler handler);
 
 	/**
 	 * @return a {@link Collection} of registered {@link ViewHandler}s
 	 */
-	@Nonnull
 	Collection<ViewHandler> getViewHandlers();
 
 	/**
@@ -145,13 +141,11 @@ public abstract interface Hologram {
 	 * @param text Text content of the hologram
 	 * @return A new {@link Hologram} instance
 	 */
-	@Nonnull
 	Hologram addLineBelow(String text);
 
 	/**
 	 * @return The {@link Hologram} line below this hologram
 	 */
-	@Nullable
 	Hologram getLineBelow();
 
 	/**
@@ -164,7 +158,6 @@ public abstract interface Hologram {
 	/**
 	 * @return a {@link Collection} of all below {@link Hologram} lines
 	 */
-	@Nonnull
 	Collection<Hologram> getLinesBelow();
 
 	/**
@@ -173,13 +166,11 @@ public abstract interface Hologram {
 	 * @param text Text content of the hologram
 	 * @return A new {@link Hologram} instance
 	 */
-	@Nonnull
 	Hologram addLineAbove(String text);
 
 	/**
 	 * @return The {@link Hologram} line above this hologram
 	 */
-	@Nullable
 	Hologram getLineAbove();
 
 	/**
@@ -192,19 +183,16 @@ public abstract interface Hologram {
 	/**
 	 * @return a {@link Collection} of all above {@link Hologram} lines
 	 */
-	@Nonnull
 	Collection<Hologram> getLinesAbove();
 
 	/**
 	 * @return a {@link Collection} of all below and above {@link Hologram} lines (Including this hologram)
 	 */
-	@Nonnull
 	Collection<Hologram> getLines();
 
 	/**
 	 * @return The entity the hologram is attached to
 	 */
-	@Nullable
 	Entity getAttachedTo();
 
 	/**
@@ -212,6 +200,6 @@ public abstract interface Hologram {
 	 *
 	 * @param entity Entity to attach the hologram to, or null to remove the attachment
 	 */
-	void setAttachedTo(@Nullable Entity entity);
+	void setAttachedTo(Entity entity);
 
 }

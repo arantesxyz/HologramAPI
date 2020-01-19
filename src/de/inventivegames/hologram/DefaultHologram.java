@@ -6,7 +6,6 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,7 +25,7 @@ public class DefaultHologram extends CraftHologram {
 
 	private BukkitRunnable updater;
 
-	protected DefaultHologram(@Nonnull Location loc, String text) {
+	protected DefaultHologram(Location loc, String text) {
 		if (loc == null) { throw new IllegalArgumentException("location cannot be null"); }
 		this.location = loc;
 		this.text = text;
@@ -134,7 +133,7 @@ public class DefaultHologram extends CraftHologram {
 	}
 
 	@Override
-	public void move(@Nonnull Location loc) {
+	public void move(Location loc) {
 		if (loc == null) { throw new IllegalArgumentException("location cannot be null"); }
 		if (this.location.equals(loc)) { return; }
 		if (!this.location.getWorld().equals(loc.getWorld())) { throw new IllegalArgumentException("cannot move to different world"); }

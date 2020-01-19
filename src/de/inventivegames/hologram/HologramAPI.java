@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.inventivetalent.reflection.minecraft.Minecraft;
 import org.inventivetalent.reflection.util.AccessUtil;
 
-import javax.annotation.Nonnull;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -64,7 +63,7 @@ public abstract class HologramAPI {
 	 * @param hologram {@link Hologram} to remove
 	 * @return <code>true</code> if the hologram has been removed
 	 */
-	public static boolean removeHologram(@Nonnull Hologram hologram) {
+	public static boolean removeHologram(Hologram hologram) {
 		if (hologram.isSpawned()) {
 			hologram.despawn();
 		}
@@ -78,7 +77,7 @@ public abstract class HologramAPI {
 		return new ArrayList<>(holograms);
 	}
 
-	protected static boolean spawn(@Nonnull final Hologram hologram, final Collection<? extends Player> receivers) throws Exception {
+	protected static boolean spawn(final Hologram hologram, final Collection<? extends Player> receivers) throws Exception {
 		if (hologram == null) { throw new IllegalArgumentException("hologram cannot be null"); }
 		checkReceiverWorld(hologram, receivers);
 		if (!receivers.isEmpty()) {
@@ -90,7 +89,7 @@ public abstract class HologramAPI {
 		return true;
 	}
 
-	protected static boolean despawn(@Nonnull Hologram hologram, Collection<? extends Player> receivers) throws Exception {
+	protected static boolean despawn(Hologram hologram, Collection<? extends Player> receivers) throws Exception {
 		if (hologram == null) { throw new IllegalArgumentException("hologram cannot be null"); }
 		if (receivers.isEmpty()) { return false; }
 
